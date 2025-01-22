@@ -307,7 +307,7 @@
       let result = "";
       for (const char of input) {
         if (char === " ") {
-          result += "[SPACE]";
+          result += " ";
         } else {
           let code = mapping[char.toLowerCase()];
           result += code ? code : char;
@@ -320,12 +320,8 @@
       const codes = input.trim().split(/\[|\]/).filter(Boolean);
       let result = "";
       codes.forEach(code => {
-        if (code === "SPACE") {
-          result += " ";
-        } else {
-          let letter = reverseMapping["[" + code + "]"];
+        let letter = reverseMapping["[" + code + "]"];
           result += letter ? letter : code;
-        }
       });
       return result;
     }
